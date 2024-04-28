@@ -17,12 +17,63 @@
         margin: 10px;
         width: 200px;
         background-color: #ededed;
+        display: block;
     }
 
-    #shoe-container {
+    .shoe-image {
+        width: 100%;
+        height: 55%;
+    }
+
+    .shoe-name{
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 0.5rem;
+    }
+
+    .shoe-price{
+        padding-bottom: 0.5rem;
+    }
+
+    button {
+        margin: 8px 9px 5px 15px;
+        background-color: var(--my-color);
+        border-radius: 5px;
+    }
+
+    button:hover{
+        background-color: #9e9e9e;
+    }
+
+    .place-bid-button{
+        margin: 0.5rem 0rem 0rem 4rem
+    }
+
+    .delete-button{
+        background-color: red;
+        margin: 0rem 0rem 0rem 9rem;
+    }
+
+    .bidder-input{
+        width: 5rem;
+    }
+
+    .place-bid{
+        padding-bottom: 0.5rem;
+    }
+
+    .shoe-container {
         display: grid;
         grid-template-areas: '. . . . .';
         padding-left: 15px;
+    }
+
+    .search-bar{
+        margin: 1rem 1rem 1rem 2rem;
+    }
+
+    .search-button{
+        background-color: white;
     }
 
     header {
@@ -75,34 +126,6 @@
         grid-area: title;
     }
 
-    .card>img {
-        width: 100%;
-        height: 131px;
-    }
-
-    .card>h3 {
-        margin: 5px
-    }
-
-    .card>p {
-        margin: 5px;
-    }
-
-    .card>button {
-        margin: 5px 10px 5px 16px;
-        background-color: var(--my-color);
-        border-radius: 5px;
-    }
-
-    .card>label,
-    input {
-        margin: 5px;
-    }
-
-    .card>button:hover {
-        background-color: #9e9e9e;
-    }
-
     body {
         background-color: var(--my-color);
         align-items: center;
@@ -133,12 +156,44 @@
                 <li class="home"><a href="home">Home</a></li>
                 <li class="about"><a href="about.html">About</a></li>
                 <li class="cart"><a href="accountInfo.html">Account</a></li>
-                <li class="sellShoe"><a href="accountInfo.html">Account</a></li>
+                <li class="sellShoe"><a href="sellShoe">Sell Shoe</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div id="shoe-container"></div>
+        <form class="search-bar" action="/home" method="GET">
+            <input type="text" name="query" placeholder="Search Shoe For Shoe">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+        <div class="shoe-container">
+            <% shoes.forEach((shoe)=>{ %>
+                <div class="card">
+                    <form action="/deleteShoe" method="post">
+                        <input type="hidden" name="id" value="<%= shoe.ID %>">
+                        <button class="delete-button">Delete</button>
+                    </form>
+                    <img class="shoe-image" src="<%= shoe.image %>" alt="<%= shoe.NAME %>">
+                    <div class="shoe-name">
+                        <%= shoe.NAME %>
+                    </div>
+                    <div class="shoe-price">Price: $<%= shoe.price %>
+                    </div>
+                    <form action="/updateBid" method="post">
+                        <input type="hidden" name="id" value="<%= shoe.ID %>">
+                        <div class="place-bid">
+                            <label for="bid">Place Bid:</label>
+                            <input type="number" id="bid" name="bid" step="0.01" min="<%= shoe.bid %>" max="<%= shoe.price %>" value="<%=shoe.bid%>">
+                        </div>
+                        <div>
+                            <label for="buyer">Bidder Name:</label>
+                            <input class="bidder-input" type="text" id="buyer" name="buyer" placeholder="John Doe">
+                            <button value="submit">Place Bid</button>
+                            <button>Buy Now</button>
+                        </div>
+                    </form>
+                </div>
+                <% }) %>
+        </div>
     </main>
     <footer>
         <p class="footer-note"><strong>Thanks for choosing Cole's Shoe Store</strong></p>
