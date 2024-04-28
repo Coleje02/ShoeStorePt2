@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+</head>
+<style>
+    :root {
+        --my-color: #7a7a7a
+    }
+
+    .card {
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        background-color: #ededed;
+    }
+
+    #shoe-container {
+        display: grid;
+        grid-template-areas: '. . . . .';
+        padding-left: 15px;
+    }
+
+    header {
+        background-color: #ededed;
+        padding: 5px 0;
+        margin: 0;
+        display: grid;
+        grid-template-areas: 'title . links';
+        border-bottom: outset;
+        border-color: #5f5f5f;
+    }
+
+    .links {
+        grid-area: links;
+        text-align-last: end;
+        padding-right: 20px;
+        font-size: 1.2rem;
+    }
+
+    header h1 {
+        color: black;
+        font-size: 3rem;
+        margin: 10px 10px;
+        text-shadow: 2px 2px 3px gray;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 10px 0;
+    }
+
+    nav li {
+        display: inline;
+    }
+
+    nav li a {
+        color: black;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
+
+    nav li a:hover {
+        color: white;
+        background-color: var(--my-color);
+    }
+
+    .toolbar-title {
+        align-content: center;
+        min-height: 48px;
+        grid-area: title;
+    }
+
+    .card>img {
+        width: 100%;
+        height: 131px;
+    }
+
+    .card>h3 {
+        margin: 5px
+    }
+
+    .card>p {
+        margin: 5px;
+    }
+
+    .card>button {
+        margin: 5px 10px 5px 16px;
+        background-color: var(--my-color);
+        border-radius: 5px;
+    }
+
+    .card>label,
+    input {
+        margin: 5px;
+    }
+
+    .card>button:hover {
+        background-color: #9e9e9e;
+    }
+
+    body {
+        background-color: var(--my-color);
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        width: 100%;
+        height: 6rem;
+        background-color: #ededed;
+        position: relative;
+        bottom: 0;
+        border-top: outset;
+        border-color: #5f5f5f;
+    }
+
+    .footer-note {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 class="toolbar-title">Shoe Store</h1>
+        <nav class="links">
+            <ul>
+                <li class="home"><a href="home">Home</a></li>
+                <li class="about"><a href="about.html">About</a></li>
+                <li class="cart"><a href="accountInfo.html">Account</a></li>
+                <li class="sellShoe"><a href="accountInfo.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="shoe-container"></div>
+    </main>
+    <footer>
+        <p class="footer-note"><strong>Thanks for choosing Cole's Shoe Store</strong></p>
+    </footer>
+</body>
+
+</html>

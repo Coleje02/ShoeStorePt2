@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store Account Info</title>
+</head>
+<style>
+    body {
+        background-color: #7a7a7a;
+        text-align-last: center;
+        padding-top: 20%;
+    }
+
+    a {
+        background-color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    #submit-button{
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+</style>
+
+<body>
+    <a href="home">&#8592; Go Back Home</a>
+    <h1 style="color: black;">Account Information</h1>
+
+
+    <form action="https://wp.zybooks.com/form-viewer.php" method="POST" enctype="multipart/form-data">
+        <div style="display: inline-grid;">
+            <label for="email">Enter Email:</label>
+            <input type="email" name="email">
+
+            <label for="password">Enter Username:</label>
+            <input type="password" name="password">
+
+            <label for="name">Enter Name:</label>
+            <input type="text" name="address">
+
+            <label for="address">Enter Address:</label>
+            <input type="text" name="address">
+
+            <input type="submit" id="submit-button">
+        </div>
+    </form>
+</body>
+
+</html>
